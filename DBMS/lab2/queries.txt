@@ -1,0 +1,32 @@
+insert into employee values('Alicia','J','Zelaya',999887777,'1968-1-19','Spring','F',250000,987654321,5),('Jennifer','S','Walice',987654321,'1941-06-20','Bellaire','F',430000,888665555,4),('Ramesh','K','Narayanan',666884444,'1962-09-15','Humble','M',380000,333445555,5),('Joyce','A','English',453453453,'1972-07-31','Houstan','F',250000,333445555,5),('John','B','Smith',123456789,'1965-01-09','Houstan','M',300000,333445555,5);
+create table department(Dname varchar(255),Dnumber int primary key,mngr int,mngr_srt varchar(255),);
+insert into department values('Research',5,333445555,'1988-05-22'),('Adminstration',4,987654321,'1995-01-01'),('HQ',1,888665555,'1981-06-19');
+
+-------------------------------------------------------------------------------------------------------
+
+create table dept_loc(Dnumber int,Dlocation varchar(255),foreign key(Dnumber) references department(Dnumber));
+insert into dept_loc values(1,'Houston'),(4,'Stafford'),(5,'Bellaire'),(5,'Houstan');
+
+create table project(Pname varchar(255),Pnumber int primary key, Plocation varchar(255), Dnum varchar(2));
+insert into project values('ProductX',1,'Bellaire',5),('ProductY',2,'Sugarland',5),('ProductZ',3,'Houstan',5),('Computerization',10,'Stafford',5);
+
+
+
+create table works_on(Essn int, Pno varchar(5), Hours decimal(10,4),foreign key(Pno) references project(Pnumber));
+insert into works_on values(123456789,1,32.5),(123456789,2,7.5),(453453453,1,20.0),(453453453,2,20.0),(333445555,2,10.0),(333445555,3,10.0),(333445555,10,10.0),(999887777,30,30.0),(999887777,10,10.0),(987654321,30,20.0);
+
+1) Retrieve the name, birthdate and address of every employee who works for the ‘administration’ department.
+select employee.Fname, employee.bdate, employee.address from employee inner join department on employee.dno=department.Dnumber where department.Dname='Adminstration';
+
+2) Find the sum of the salaries of all employees of the ‘Research’
+department, as well as the maximum salary, the minimum salary, and the average salary in this department.
+
+select Dnumber from department where Dname='Research';
+select sum(salary) from employee where Dno=5;
+select min(salary) from employee where Dno=5;
+select max(salary) from employee where Dno=5;
+select avg(salary) from employee where Dno=5;
+
+3) Retrieve the number of employees in the ‘administration’ department
+select count() from employee where Dno=4;
+
