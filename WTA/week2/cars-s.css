@@ -1,0 +1,32 @@
+
+fieldset{
+	margin: auto;
+	display: block;
+	height: 50em;
+	width: 50em;
+}
+ol.types{
+	list-style-type: upper-roman;	
+	background-color: grey;
+}
+ol.door_types{
+	list-style-type: upper-alpha;
+	background-color: 
+}
+ol.two_door,ol.four_door,ol.coupe,ol.conv{
+	list-style-type: arabic-indic;
+}
+
+.Compact{
+	background-color: yellow;
+}
+.Midsize{
+	background-color: cyan;
+}
+.Sports{
+	background-color: red;
+}
+h1{
+	font-style: arial;
+	color: blue;
+}

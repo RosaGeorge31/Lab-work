@@ -1,0 +1,26 @@
+input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid purple;
+    border-radius: 4px;
+    background-color: #FFFF88;
+    color: white;
+    margin-left: 2px;
+}
+fieldset {
+    width: 500px;
+    padding: 10px;
+    border: 2px solid purple;
+    margin-left: 100px;
+    margin-top: 100px;
+    
+}
+legend{
+	border: 2px solid purple;	
+	background-color: #FFFF88;
+	width: 150px;
+	height: 30px;
+	padding-top: :  100px ;
+    
+	}
