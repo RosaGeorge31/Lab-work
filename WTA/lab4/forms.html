@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details</title>
+  <link rel="stylesheet" type="text/css" href="style-form.css">
+  <script type="text/javascript">
+  	function display()
+  	{
+  		document.getElementById('displayName').innerHTML = document.getElementById("name").value;
+  		document.getElementById('displayCity').innerHTML = document.getElementById("city").value;
+  		document.getElementById('displayGender').innerHTML = document.getElementById("gender").value;
+  		document.getElementById('displayComments').innerHTML = document.getElementById("comments").value;
+
+  	}
+  </script>
+</head>
+<body>
+
+ <fieldset>
+    <legend>feedback form</legend>
+
+    <form>
+
+ 	Name:  <input type="text" name="Name" id="name"><br>
+ 	City:  <input type="text" name="city" id="city"><br>
+ 	Gender:  <input type="text" name="gender" id="gender"><br>
+ 	Comments:  <input type="text" name="comments" id="comments"><br>
+
+<input type="submit" value="Submit" onclick="display();">
+</form> 
+</fieldset>
+<br><br>
+<h4><b>The form data: </b></h4>
+ <p id="displayName"></p>
+ <br>
+  <p><span id="displayCity"></span></p>
+ <br>
+  <p><span id="displayGender"></span></p>
+ <br>
+  <p><span id="displayComments"></span></p>
+
+
+<script >
+	
+</script>
+</body>
+</html>
