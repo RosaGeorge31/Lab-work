@@ -1,8 +1,8 @@
 create table physician(employeeid int primary key,name varchar(255),position varchar(255),ssn int);
 create table department(departmentid int primary key,name varchar(255),head int,foreign key(head) references physician(employeeid));
 
-create table patient(ssn int primary key,name varchar(255),addresss varchar(255),phone int, insuranceid int, pcp int,foreign key(pcp) references physician(employeeid));
------------------------------------------------------
+create table patient(ssn int primary key,name varchar(255),addresss varchar(255),phone varchar(12), insuranceid int, pcp int,foreign key(pcp) references physician(employeeid));
+-----------------------------------------------------	
 create table nurse(employeeid int primary key,name varchar(255),position varchar(255),registered char(1),ssn int);
 
 
@@ -70,3 +70,61 @@ insert into patient values
 
 
 2 - SELECT physician.name FROM physician INNER JOIN  department WHERE physician.employeeid=department.head;
+
+
+create table procedur(code int primary key,name varchar(255),cost int);
+
+create table trained_in(physician int,treatment int,certificationdate varchar(255), certificationexpires varchar(255), CONSTRAINT pk_trained primary key(physician,treatment), foreign key(physician) references physician(employeeid),foreign key(treatment) references procedur(code));
+
+create table undergoes(patient int, procedureID int, procDate varchar(255),physician int,assistingnurse int, CONSTRAINT pk_undergoes primary key(patient, procedureID, procDate), foreign key(patient) references patient(ssn),foreign key(procedureID) references procedur(code),foreign key(physician) references physician(employeeid),foreign key(assistingnurse) references nurse(employeeid));
+
+insert into procedur values
+(    1 , 'Reverse Rhinopodoplasty'               	 ,  1500),
+(   2 , 'Obtuse Pyloric Recombobulation'    		 ,  3750),
+  (  3 , 'Folded Demiophtalmectomy'            	 ,  4500),
+    (4 , 'Complete Walletectomy'             	         , 10000),
+    (5 , 'Obfuscated Dermogastrotomy'        	         ,  4899);
+    
+
+insert into undergoes values
+ (100000001 ,         1 , '2008-05-02 00:00:00' ,         3 ,            101),
+ (100000001 ,         2 , '2008-05-10 00:00:00' ,         7 ,            101),
+ (100000004 ,         4 , '2008-05-13 00:00:00' ,         3 ,            103);
+
+
+
+insert into trained_in values
+  (       3 ,         1 , '2008-01-01'        , '2008-12-31'),
+         (3 ,         2 , '2008-01-01'        , '2008-12-31'),
+         (6 ,         2 , '2008-01-01'        , '2008-12-31'),
+         (6 ,         5 , '2007-01-01'        , '2007-12-31'),
+         (7 ,         1 , '2008-01-01'        , '2008-12-31');
+
+
+
+ 3) Write a query in SQL to obtain the names of all patients who have been undergone a procedure costing more than $5,000 and the name of that physician who has carried out primary care.
+
+	 select physician.name,patient.name from physician, patient where patient.name=(select p.name from patient p, procedur pr,undergoes u where pr.cost>5000 and p.ssn=u.patient and u.procedureID=pr.code) and patient.pcp=physician.employeeid;
+
+
+
+4)Write a query in SQL to obtain the name of all those physicians who completed a medical procedure with certification after the date of expiration of their certificate, their position, procedure they have done, date of procedure, name of the patient on which the procedure had been applied and the date when the certification expired.
+
+
+
+
+
+5) Write a SQL query to obtain the names of all the physicians performed a medical procedure but they are not certified to perform.
+
+
+1) Write a query in SQL to obtain the names of all patients whose primary care is taken by a physician who is not the head of any department and name of that physician along with their primary care physician.
+
+
+	select p.name from patient p, physician ph, department d where not exists(select head from department where p.pcp=ph.employeeid);	
+
+
+
+
+
+
+2) Write a query in SQL to obtain the names of all patients who had at least two appointments where the nurse who prepped the appointment was a registered nurse and the physician who has carried out primary care.

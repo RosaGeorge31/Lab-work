@@ -1,16 +1,6 @@
 import csv
 import random
 
-# Authored by: Aditi Rao
-# Submitted on 24th August 2018
-
-#### VERY IMPORTANT NOTE #####
-
-# I am assuming that all training tuples in the csv
-# files are such that the class label is the last attribute 
-# or last column of the csv file. 
-# In this example SPECT.csv requires the first column
-# to be moved to the last position before running this code
 class Perceptron:
     def __init__(self,file=None,iterations=1000,learning_rate=0.2):
         self.train=[]
@@ -23,79 +13,89 @@ class Perceptron:
         self.file=file
 
     def read_datafile(self):
-        print("\nReading data from file: ", self.file)
-        with open(self.file,"r") as file_name :
-            data=csv.reader(file_name)
-            for line in data:
-                self.train.append(list(line))
-            attributes=self.train.pop(0)
-            random.shuffle(self.train)
-            for i in range(0,int(len(self.train)*0.1)):
-                self.test.append(self.train.pop())
-        print("Data reading complete\n")
-
-        print("Test set: ",len(self.test)," values. Train set: ",len(self.train)," values")
-        n_items=len(self.train[0])
-        self.weights=[1/(n_items) for i in range(0,n_items)]
-        for item in self.train:
-            self.labels.append(item[-1])
-
-        self.labels=list(set(self.labels))
-        print("Classes: ",self.labels,"\n")
-
-    def train_perceptron(self):
-        trained=True
-        self.read_datafile()
-        print("Training on ",len(self.train), "examples.....")
-        n_items=len(self.train[0])
-        for i in range (0,min(self.MAX_ITERATIONS,self.iterations)):
-            for line in self.train:
-                predicted=(self.weights[0]*1)
-
-                for i in range(0,n_items-1):
-                    predicted+=self.weights[i+1]*float(line[i])
-                if predicted>1:
-                    error=self.labels.index(line[-1])-1
+        mat = []
+        Reader = csv.reader(open('IRIS.csv', newline=''), delimiter=',')
+        print('Reading the dataset...\n\n')
+        for row in Reader:
+            mat.append(row)
+        mat = mat[1:]
+        c=1
+        shuffle(mat)
+        y = []
+        new = [[1 for i in range(len(mat[0]))] for i in range(len(mat)) ]
+        for i in range(len(mat)):
+            for j in range(len(mat[i])):
+                if j==4:
+                    if mat[i][j]=='Iris-versicolor':
+                        y.append(1)
+                    if mat[i][j]=='Iris-setosa':
+                        y.append(0)
                 else:
-                    error=self.labels.index(line[-1])
-                if error!=0 and trained:
-                    trained=False
-                if error==0 and not trained:
-                    trained=True            
-                for i in range(1,n_items):
-                    self.weights[i]+=self.LEARNING_RATE*error*float(line[i-1])
-            if trained:
-                print("Trained in ", i," iterations")
-                print(self.weights)
-                break    
+                    new[i][j+1] = float(mat[i][j])
+        return [new,y]
 
+        def main_func(self,X_train,Y_train,X_test,Y_test):
+        
+            threshold = 1
+            error = [1 for i in range(len(X_train))]
+            checker = [0 for i in range(len(X_train))]
+            num_ft = len(X_train[0])
+            wts = [1/(num_ft) for u in range(num_ft)]
+            row = 0
+            N = len(X_train)
 
-        print("Training complete.\n")
+            print('Training the dataset with length of training set = ', len(X_train))
 
-    def test_perceptron(self):
-        print("Testing ",len(self.test), " examples....")
-        count=0
-        n_items=len(self.train[0])
-        for line in self.test:
-            expected=self.weights[0]
-            for i in range(0,n_items-1):
-                expected+=self.weights[i+1]*float(line[i])
-            if expected>1:
-                predicted=self.labels[1]
-            else:
-                predicted=self.labels[0]
-            #print(line[-1],predicted)
-            if predicted==line[-1]:
-                count+=1
-        print("Testing Complete\nAccuracy: ",(count/len(self.test))*100,"%\n\n")
+            while error!=checker and c!=self.MAX_ITERATIONS:
+                ind = 0
+                for row in X_train:
+                    
+                    s = wts[0]
+                    for j in range(1,len(wts)):
+                        s+=row[j]*wts[j]
+                    if s>=1:
+                        prediction = 1
+                    else:
+                        prediction = 0
+                    error[ind] = Y_train[ind]-prediction
+                    
 
+                    for j in range(1,len(wts)):
+                        wts[j] += error[ind] * self.LEARNING_RATE * row[j]
+                    wts[0] += error[ind] * self.LEARNING_RATE
+                    ind+=1
+                c+=1
+            print('\nTraining complete! Number of iterations : ' + str(c))
+            print('Weights are:')
+            print(wts)
+            print('\nTesting the dataset with size of test set = ', len(X_test))
+            correct = 0
+            for i in range(len(X_test)):
+                s = wts[0]
+                for j in range(1,len(wts)):
+                    s += X_test[i][j]*wts[j]
+                if s>=1:
+                    ynow = 1
+                else:
+                    ynow = 0
+                if Y_test[i] == ynow:
+                    correct+=1
+                
+            print('\n\nAccuracy = ' + str((correct*100)/length)+'%')
 
 def main():
     iris_perceptron=Perceptron('IRIS.csv')
-    iris_perceptron.train_perceptron()
-    iris_perceptron.test_perceptron()
-
-    # spect_perceptron=Perceptron('SPECT.csv')
+    val= iris_perceptron.read_datafile()
+    data = val[0]
+    y=val[1]
+    n = len(data)
+    for i in range(0,n//10):
+            test=data[i*10:(i+1)*10]
+            train=data[0:i*10]+data[(i+1)*10:n]
+            y_test = y[[i*10:(i+1)*10]]
+            Y_train = y[0:i*10]+data[(i+1)*10:n]
+            iris_perceptron.main_func(train,Y_train,test,Y_test)
+       # spect_perceptron=Perceptron('SPECT.csv')
     # spect_perceptron.train_perceptron()
     # spect_perceptron.test_perceptron()
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculate total price</title>
+	<script type="text/javascript" src="q4.js"></script>
+</head>
+<body>
+<table>
+<tr>
+	<td>Items</td>
+	<td>Price/kg</td>
+	<td>Quantity(in kgs)</td>
+</tr>
+<tr>
+	<td>Item1</td>
+	<td>100</td>
+	<td><input type="number" onchange="sum()" name="item1" value="0"></td>
+</tr>	
+
+<tr>
+	<td>Item2</td>
+	<td>40</td>
+	<td><input type="number" onchange="sum()" name="item2" value="0"></td>
+</tr>
+
+<tr>
+	<td>Item3</td>
+	<td>25</td>
+	<td><input type="number" onchange="sum()" name="item3" value="0"></td>
+</tr>
+</table>
+
+<button onclick="sum()"> Click for total amount</button>
+<input type="text" name="total" id="total" readonly>	
+</body>
+</html>
