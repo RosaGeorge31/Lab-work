@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="p1.xsl"?>
+
+<concert_tickets>
+  <ad>
+  <Band_name>One direction</Band_name>
+  <Venue_info>
+<Name>Dubai Stadium</Name>  
+<Address>Al Barsha 3</Address>
+<Contact_no>88956544</Contact_no>
+  </Venue_info>
+    <date_time>25/08/2018 19:00</date_time>
+  <date_time>27/08/2018 19:00</date_time>
+  <date_time>29/08/2018 19:00</date_time>
+  <Genre>Pop</Genre>
+  <Performers_info>
+    <entry>
+    <first_name>Harry</first_name>
+    <last_name>Styles</last_name>
+    <role>Singer</role>
+    </entry>
+<entry>
+    <first_name>Louis</first_name>
+    <last_name>Tomlinson</last_name>
+    <role>Singer</role>
+  </entry>
+  <entry>
+    <first_nam>Liam</first_nam>
+    <last_name>Pane</last_name>
+    <role>Singer</role>
+    </entry>
+</Performers_info>
+
+  
+  <Ticket_price>1000</Ticket_price>
+  <Ticket_type>Platinum</Ticket_type>
+  <Discounts>NA</Discounts>
+  <Seller_Info>
+  <Name>Human</Name>
+  <email>human@gmail.com</email>
+  <phone_no>77777</phone_no>
+  <address>Some address</address>
+  </Seller_Info>
+  </ad>
+  
+
+    <ad>
+  <Band_name>Chello</Band_name>
+  <Venue_info>
+<Name>Arts Centre</Name>  
+<Address>Mangalore</Address>
+<Contact_no>88956544</Contact_no>
+  </Venue_info>
+  <date_time>25/04/2018 19:00</date_time>
+  <date_time>27/04/2018 19:00</date_time>
+  <date_time>29/04/2018 19:00</date_time>
+  
+  <Genre>Classical</Genre>
+  <Performers_info>
+    <entry>
+    <first_name>Harry</first_name>
+    <last_name>Suresh</last_name>
+    <role>Violinist</role>
+    </entry>
+<entry>
+    <first_name>Louis</first_name>
+    <last_name>Tablinson</last_name>
+    <role>Tabla player</role>
+  </entry>
+</Performers_info>
+
+  <Ticket_price>90</Ticket_price>
+  <Ticket_type>Platinum</Ticket_type>
+  <Discounts>NA</Discounts>
+  <Seller_Info>
+  <Name>Human</Name>
+  <email>human@gmail.com</email>
+  <phone_no>77777</phone_no>
+  <address>Some address</address>
+  </Seller_Info>
+  </ad>
+  <ad>
+
+
+  <Band_name>Melody</Band_name>
+  <Venue_info>
+<Name>Arts Centre</Name>  
+<Address>Mangalore</Address>
+<Contact_no>88956544</Contact_no>
+  </Venue_info>
+  <date_time>25/05/2018 19:00</date_time>
+  <date_time>27/05/2018 19:00</date_time>
+  <date_time>29/05/2018 19:00</date_time>
+    
+  <Genre>Instrumental</Genre>
+  <Performers_info>
+    <entry>
+    <first_name>Harry</first_name>
+    <last_name>Ganesh</last_name>
+    <role>Violinist</role>
+    </entry>
+<entry>
+    <first_name>Louis</first_name>
+    <last_name>Tablinson</last_name>
+    <role>Tabla player</role>
+  </entry>
+  <entry>
+    <first_name>Liam</first_name>
+    <last_name>Robinson</last_name>
+    <role>Keyboard player</role>
+  </entry>
+</Performers_info>
+  
+  <Ticket_price>190</Ticket_price>
+  <Ticket_type>Platinum</Ticket_type>
+  <Discounts>25</Discounts>
+  <Seller_Info>
+  <Name>Human</Name>
+  <email>human@gmail.com</email>
+  <phone_no>77777</phone_no>
+  <address>Some address</address>
+  </Seller_Info>
+  </ad>
+</concert_tickets>

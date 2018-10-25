@@ -1,0 +1,72 @@
+Band_name  {
+  display:inline-block;
+  margin: 2em 1em;
+  color: blue;
+  font-weight: bold;
+  padding: 0px 1em;
+  background-color: white;
+	position: static;
+	
+  }
+ Venue_info  {
+ display: inline-block;
+  color: blue;
+  font-weight: bold;
+  
+  background-color: white;
+  right: 30px;
+
+  }
+
+  date_time{
+  	display: block;
+  color: blue;
+  font-weight: bold;
+  align-content: left;
+  background-color: white;
+  margin-left: 30px;
+  margin-top:10px;
+  }
+  Genre{
+  	color: maroon;
+  	display: block;
+  	margin-left: 80px;
+  	font-style: italic;
+  	 display: inline-block;
+  	 margin-top: 30px;
+  }
+
+  Performers_info{
+  	display: block;
+  	margin-top: 20px;
+  	color: orange;
+  	margin-left: 120px;
+}
+entry{
+	display:inline-block;
+	margin-right: 50px;
+
+}
+Ticket_price{
+	margin-top: 20px;
+	display: inline-block;
+	color: orange;
+	margin-left: 120px;
+}
+Ticket_type{
+	display: inline-block;
+	color: orange;
+	margin-left: 30px;
+}
+Discounts{
+	display: inline-block;
+	color: orange;
+	margin-left: 30px;
+}
+Seller_Info{
+	margin-top: 20px;
+	display: block;
+	color: black;
+	font-weight: bold;
+	margin-left: 80px;
+}
