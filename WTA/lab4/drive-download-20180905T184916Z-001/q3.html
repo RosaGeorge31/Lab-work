@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<script type="text/javascript" src="q3.js"></script>
+</head>
+
+<body>
+	<form id="myform">
+	<p> First Name: <input type="text" id="firstName" name="firstName" required maxlength="20"></p>
+	<p> Last Name: <input type="text" id="lastName" name="lastName" required maxlength="20"></p>
+	<p>	email address: <input type="text" id="email" name="email" required maxlength="20"></p>
+	<p id="invalid" style="color:red"></p>
+	<p>Gender:
+	<input type="radio" name="Gender" value="Female"/>Female
+	<input type="radio" name="Gender" value="Male"/>Male</p>
+	<p>Comments: <input type="text" id="comments" name="Comments" required maxlength="20"></p>
+	<button onclick="validateForm()">Validate Form!</button>
+	</form> 
+
+</body>
+
+</html>

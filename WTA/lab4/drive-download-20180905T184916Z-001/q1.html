@@ -7,12 +7,12 @@
 
 <body>
 
-	<form id="myform" method="post" action="submit.html">
+	<form id="myform" method="post" action="script.url">
 	<p>Name: <input type="text" id="name" name="Name"></p>
 	<p>City: <input type="text" id="city" name="City"></p>
 	<p>Gender:
-	<input type="radio" name="Gender" value="Female"/>Female
-	<input type="radio" name="Gender" value="Male"/>Male</p>
+	<input type="checkbox" name="Gender" value="Female"/>Female
+	<input type="checkbox" name="Gender" value="Male"/>Male</p>
 	<p>Comments: <input type="text" id="comments" name="Comments"></p>
 	<input type="submit" value="Submit">
 	</form> 
@@ -20,7 +20,7 @@
 	<p id="display"></p>
 	<button onclick="nameFunction()">Display using Name attribute!</button>
 	<p id="disp"></p>
-	<button onclick="domfunc()">Display using DOM address!</button>
-	<p id="disp2"></p>
+
 </body>
+
 </html>

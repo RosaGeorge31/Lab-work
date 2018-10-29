@@ -3,7 +3,9 @@ function myFunction() {
     var txt = "";
     var i;
     for (i = 0; i < x.length-1; i++) {
-        if(i==2 || i==3)
+        if(i==2)
+        alert(x[i].value);
+       if(i==2 || i==3)
         {
             if(x.elements[i].checked)
                 txt = txt + x.elements[i].value + "<br>";
@@ -23,6 +25,7 @@ function nameFunction(){
     var y=document.getElementsByName("City");
     var z=document.getElementsByName("Comments");
     var g=document.getElementsByName("Gender");
+    //alert(x.value);
     var gender;
     if(g[0].checked)
         gender=g[0].value;
@@ -35,12 +38,12 @@ function nameFunction(){
 
 function domfunc()
 {
-    var txt=""
+    var txt2=""
     var x=myform.name.value;
     var y=myform.city.value;
     var z=myform.comments.value;
     var g=myform.Gender.value;
     
-    txt= txt + x[0].value +"<br>" + y[0].value + "<br>" + z[0].value +"<br>" + gender;
-     document.getElementById("disp").innerHTML=txt;
+    txt2= txt2 + x +"<br>" + y + "<br>" + z +"<br>" + g;
+     document.getElementById("disp2").innerHTML=txt2;
  }

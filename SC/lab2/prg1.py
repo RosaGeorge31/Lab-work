@@ -60,19 +60,3 @@ while c!=max_iter:
 	hidden = feedforward(X_train[0],Iwts)
 	print(hidden)
 
-	
-# print(wts)
-# correct = 0
-# for i in range(len(X_test)):
-# 	s = wts[0]
-# 	for j in range(1,len(wts)):
-# 		s += X_test[i][j]*wts[j]
-# 	if s>=1:
-# 		ynow = 1
-# 	else:
-# 		ynow = 0
-# 	if Y_test[i] == ynow:
-# 		correct+=1
-	
-# print('Accuracy = ' + str((correct*100)/length))
-# print(c)

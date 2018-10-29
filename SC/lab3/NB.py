@@ -2,8 +2,6 @@ import csv
 import random
 import math
 
-
-
 class NBClassifier:
 	def __init__(self,FILE=None):
 		self.file=FILE
